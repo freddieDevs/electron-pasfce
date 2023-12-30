@@ -1,0 +1,46 @@
+{
+  "name": "electron-pasfce",
+  "version": "0.0.1",
+  "description": "Vite + Electron with doubleshot",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "dev": "rimraf dist && vite",
+    "debug": "rimraf dist && vite -- --dsb-debug",
+    "build": "rimraf dist && vite build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "@doubleshot/nest-electron": "^0.2.5",
+    "@nestjs/common": "^10.3.0",
+    "@nestjs/core": "^10.3.0",
+    "@nestjs/microservices": "^10.3.0",
+    "@radix-ui/react-slot": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.302.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "reflect-metadata": "^0.1.14",
+    "rxjs": "^7.8.1",
+    "tailwind-merge": "^2.2.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@lightwing/eslint-config": "^1.0.21",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.16",
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1",
+    "eslint": "^8.56.0",
+    "postcss": "^8.4.32",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-doubleshot": "^0.0.13"
+  }
+}
