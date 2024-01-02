@@ -1,6 +1,7 @@
 import { Button } from "./components/ui/button"
 
 const App = () => {
+  const ipc = window.ipcRenderer;
   const handleclick = () => {
     console.log('Clicked');
   }; 

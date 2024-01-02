@@ -1,11 +1,13 @@
 import { contextBridge, ipcRenderer } from 'electron'
 
 contextBridge.exposeInMainWorld(
-  'electron',
+  'ipcRenderer',
   {
-    sendMsg: (msg: string): Promise<string> => ipcRenderer.invoke('msg', msg),
-    onReplyMsg: (cb: (msg: string) => any) => ipcRenderer.on('reply-msg', (e, msg: string) => {
-      cb(msg)
-    }),
+    // sendMsg: (msg: string): Promise<string> => ipcRenderer.invoke('msg', msg),
+    send: (channel: string, data: string) => ipcRenderer.invoke(channel, data),
+    // onReplyMsg: (cb: (msg: string) => any) => ipcRenderer.on('reply-msg', (e, msg: string) => {
+    //   cb(msg)
+    // }),
+    on: (channel: string, func: (event: Electron.IpcRendererEvent, ...args: any[]) => void)=> ipcRenderer.on(channel, (event, ...args) => func(event, ...args)),
   },
 )
