@@ -23,7 +23,7 @@
     "types": [
       "vite/client",
     ],
-    "typeRoots": ["node_modules/@types/","src/preload/index.d.ts","node_modules"],
+    "typeRoots": ["node_modules/@types/","src/preload/types/index.ts","node_modules"],
     "strict": false,
     "noImplicitAny": false,
     "noEmit": true,

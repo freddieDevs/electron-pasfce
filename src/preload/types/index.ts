@@ -3,7 +3,7 @@ declare global {
     ipcRenderer: {
       // sendMsg(msg: string): Promise<string>
       // onReplyMsg(cb: (msg: string) => any): void
-      send(channel: string, data: string): Promise<string>
+      send(channel: string, data: object): Promise<string>
       on(channel: string, func: (event: Electron.IpcRendererEvent, ...args: any[]) => void): void
     }
   }
