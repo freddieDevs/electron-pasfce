@@ -41,13 +41,12 @@ export const SigninPage = () => {
     // TODO sign in or up with the backend
     try {
       setLoading(true);
-      ipc.send('msg', data);
-      // const response = await axios.post('/api/management/signin', data);
-      // //setting accesstoken as authToken
-      // const authResponse: { accessToken: string } = response.data;
-      // localStorage.setItem('authToken', authResponse.accessToken); 
-      //redirect to clusters page
-      // navigate('/');
+      // console.log("DATA", data);
+      const res = await ipc.send('msg', data) as string;
+      // console.log("RES", res);
+      toast.success(res);
+      //#### this is a TODO...
+      //#### AFTER SENDING THE MESSAGE ON REPLY WE USE THE IPC.ON TO NAVIGATE TO ANOTHER ROUTE LATER 
     } catch (error) {
       toast.error('invalid credentials')
       console.error('AUTHERROR', error);

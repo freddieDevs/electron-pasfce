@@ -4,7 +4,7 @@ contextBridge.exposeInMainWorld(
   'ipcRenderer',
   {
     // sendMsg: (msg: string): Promise<string> => ipcRenderer.invoke('msg', msg),
-    send: (channel: string, data: string) => ipcRenderer.invoke(channel, data),
+    send: (channel: string, data: { username: string; password: string }) => ipcRenderer.invoke(channel, data),
     // onReplyMsg: (cb: (msg: string) => any) => ipcRenderer.on('reply-msg', (e, msg: string) => {
     //   cb(msg)
     // }),

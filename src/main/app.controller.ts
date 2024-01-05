@@ -13,9 +13,13 @@ export class AppController {
   ) { }
 
   @IpcHandle('msg')
-  public handleSendMsg(@Payload() msg: string): Observable<string> {
+  public handleSendMsg(@Payload() data: { username: string; password: string }): Observable<string> {
+    // console.log("DATA-->", data);
     const { webContents } = this.mainWin
+    const time = this.appService.getTime();
+    //converting time to locale string
+    const formattedTime = new Date(time).toLocaleString();
     webContents.send('reply-msg', 'this is msg from webContents.send')
-    return of(`The main process received your message: ${msg} at time: ${this.appService.getTime()}`)
+    return of(`The main process received your message: username:${data.username}, password: ${data.password} at time: ${formattedTime}`);
   }
 }
